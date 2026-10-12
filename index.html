@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .glass {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -45,13 +45,21 @@
             <div class="flex justify-between h-16 items-center">
                 <a href="#" class="text-xl font-bold tracking-wider gradient-text">PLB.dev</a>
                 <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#about" class="hover:text-cyan-400 transition">Rólam</a>
-                    <a href="#experience" class="hover:text-cyan-400 transition">Tapasztalat</a>
-                    <a href="#projects" class="hover:text-cyan-400 transition">Projektek</a>
-                    <a href="#skills" class="hover:text-cyan-400 transition">Készségek</a>
-                    <a href="#contact" class="hover:text-cyan-400 transition">Kapcsolat</a>
+                    <a href="#about" data-i18n="nav_about" class="hover:text-cyan-400 transition">About</a>
+                    <a href="#experience" data-i18n="nav_exp" class="hover:text-cyan-400 transition">Experience</a>
+                    <a href="#projects" data-i18n="nav_projects" class="hover:text-cyan-400 transition">Projects</a>
+                    <a href="#skills" data-i18n="nav_skills" class="hover:text-cyan-400 transition">Skills</a>
+                    <a href="#contact" data-i18n="nav_contact" class="hover:text-cyan-400 transition">Contact</a>
                 </div>
+                
                 <div class="flex items-center space-x-4">
+                    <!-- Language Selector -->
+                    <div class="flex items-center bg-slate-800/80 rounded-lg p-1 border border-slate-700 text-xs font-semibold">
+                        <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded transition bg-cyan-500 text-white">EN</button>
+                        <button onclick="setLanguage('hu')" id="lang-hu" class="px-2 py-1 rounded transition text-slate-400 hover:text-white">HU</button>
+                        <button onclick="setLanguage('ro')" id="lang-ro" class="px-2 py-1 rounded transition text-slate-400 hover:text-white">RO</button>
+                    </div>
+
                     <a href="https://github.com/brthpatrick" target="_blank" class="text-slate-400 hover:text-white text-xl transition"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/barthpatrick/" target="_blank" class="text-slate-400 hover:text-white text-xl transition"><i class="fab fa-linkedin"></i></a>
                 </div>
@@ -62,21 +70,21 @@
     <!-- Hero Section -->
     <section id="about" class="pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
         <div class="space-y-6 md:w-2/3">
-            <div class="inline-block px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-widest">
+            <div data-i18n="hero_badge" class="inline-block px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-widest">
                 MSc Artificial Intelligence Student
             </div>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
-                Szia, <span class="gradient-text">Patrick-László Barth</span> vagyok
+                <span data-i18n="hero_greeting">Hi, I'm</span> <span class="gradient-text">Patrick-László Barth</span>
             </h1>
-            <p class="text-slate-400 text-lg leading-relaxed">
-                Informatikus szoftverfejlesztő és MI-mesterképzéses hallgató (UMFST Târgu Mureș). Szakterületem a full-stack fejlesztés (C# / .NET, React, Angular, Node.js) és az AI-integrációk.
+            <p data-i18n="hero_desc" class="text-slate-400 text-lg leading-relaxed">
+                Computer Science graduate & MSc Student in Artificial Intelligence at UMFST Târgu Mureș. Focused on full-stack development (C# / .NET, React, Angular, Node.js) and practical AI integrations.
             </p>
             <div class="flex flex-wrap gap-4 pt-2">
-                <a href="#projects" class="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold transition shadow-lg shadow-cyan-500/20">
-                    Projektek megtekintése
+                <a href="#projects" data-i18n="btn_projects" class="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold transition shadow-lg shadow-cyan-500/20">
+                    View Projects
                 </a>
-                <a href="#contact" class="px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white transition">
-                    Kapcsolatfelvétel
+                <a href="#contact" data-i18n="btn_contact" class="px-6 py-3 rounded-xl border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white transition">
+                    Get in Touch
                 </a>
             </div>
         </div>
@@ -87,10 +95,10 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-white">Software Developer</h3>
-                    <p class="text-xs text-slate-400">Târgu Mureș, Románia</p>
+                    <p class="text-xs text-slate-400">Târgu Mureș, Romania</p>
                 </div>
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Fejlesztésre kész
+                <span data-i18n="status_ready" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Ready to build
                 </span>
             </div>
         </div>
@@ -99,41 +107,41 @@
     <!-- Experience Section -->
     <section id="experience" class="py-16 px-4 max-w-6xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <i class="fas me-2 fa-briefcase text-cyan-400"></i> Munkatapasztalat
+            <i class="fas fa-briefcase text-cyan-400"></i> <span data-i18n="exp_title">Work Experience</span>
         </h2>
         <div class="space-y-6">
             <div class="glass p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h3 class="text-xl font-semibold text-white">Trainee Software Developer — <span class="text-cyan-400">Topmotive SRL</span></h3>
-                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2026. június – 2026. július</span>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2026.06 – 2026.07</span>
                 </div>
-                <p class="text-sm text-slate-400 mb-3">Summer practice - "A full stack developer's summer"</p>
-                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
-                    <li>3 full-stack alkalmazás fejletsztése Blazor, React 19, React Native, TypeScript, C#/.NET és MongoDB használatával.</li>
-                    <li>Clean Architecture elvek és Context API állapotkezelés alkalmazása.</li>
-                    <li>Automated UI tesztelés kivitelezése Selenium WebDriver és FlaUI használatával.</li>
+                <p class="text-sm text-slate-400 mb-3 font-mono">Summer practice - "A full stack developer's summer"</p>
+                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1" data-i18n-html="topmotive_bullets">
+                    <li>Built 3 full-stack web and mobile apps using Blazor, React 19, React Native, TypeScript, C#/.NET, and MongoDB.</li>
+                    <li>Applied Clean Architecture principles, Context API state management, and JS Interop.</li>
+                    <li>Implemented automated UI testing using Selenium WebDriver and FlaUI.</li>
                 </ul>
             </div>
 
             <div class="glass p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h3 class="text-xl font-semibold text-white">Software Developer Intern — <span class="text-cyan-400">Accenture Services SRL</span></h3>
-                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2025. június – 2025. augusztus</span>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2025.06 – 2025.08</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
-                    <li>C#/.NET alapú adatkinyerő alkalmazás fejlesztése Azure Form Recognizer integrációval.</li>
-                    <li>Strukturált adatfeldolgozási és normalizálási logikák megvalósítása.</li>
+                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1" data-i18n-html="accenture_bullets">
+                    <li>Developed C#/.NET application for automated table extraction using Azure Form Recognizer.</li>
+                    <li>Implemented data normalization, value extraction logic, and element relationship discovery.</li>
                 </ul>
             </div>
 
             <div class="glass p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                     <h3 class="text-xl font-semibold text-white">Web Developer Intern — <span class="text-cyan-400">WEBAPIX K.f.t. (Erasmus+)</span></h3>
-                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2024 & 2025 (Nyár)</span>
+                    <span class="text-xs text-slate-400 bg-slate-800 px-3 py-1 rounded-full w-max">2024 & 2025 (Summer)</span>
                 </div>
-                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
-                    <li>AI-vezérelt szabadulószoba webalkalmazás fejlesztése Laravel és Python MI modellek integrálásával.</li>
-                    <li>Backend funkciók és adatbázis integrációk építése Laravel keretrendszerben.</li>
+                <ul class="list-disc list-inside text-sm text-slate-300 space-y-1" data-i18n-html="webapix_bullets">
+                    <li>Developed an AI-driven escape room application integrating Laravel with Python-based AI models.</li>
+                    <li>Implemented backend logic, database integrations, and feature development in Laravel.</li>
                 </ul>
             </div>
         </div>
@@ -142,18 +150,19 @@
     <!-- Projects Section -->
     <section id="projects" class="py-16 px-4 max-w-6xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <i class="fas fa-code text-cyan-400"></i> Kiemelt Projektek
+            <i class="fas fa-code text-cyan-400"></i> <span data-i18n="projects_title">Featured Projects</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
+            <!-- Project 1: Farmers Market -->
             <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
                 <div>
                     <div class="flex justify-between items-start mb-3">
                         <h3 class="text-lg font-bold text-white">Farmers Market E-Commerce Platform</h3>
-                        <span class="text-xs bg-purple-950 text-purple-300 border border-purple-500/30 px-2.5 py-1 rounded-full">Licenszmunkám</span>
+                        <span data-i18n="badge_thesis" class="text-xs bg-purple-950 text-purple-300 border border-purple-500/30 px-2.5 py-1 rounded-full">Bachelor Thesis</span>
                     </div>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Többszereplős e-commerce platform RBAC jogosultságkezeléssel, Stripe fizetéssel és Google Gemini 2.5 Flash integrációval a többnyelvű termékleírások automatikus generálásához.
+                    <p data-i18n="p1_desc" class="text-sm text-slate-400 mb-4">
+                        Multi-role e-commerce platform with RBAC security, Stripe payments, and Google Gemini 2.5 Flash integration for automated multilingual product descriptions.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">React 19</span>
@@ -163,15 +172,16 @@
                     </div>
                 </div>
                 <a href="https://github.com/brthpatrick" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
-                    GitHub Repo megtekintése <i class="fas fa-external-link-alt text-xs"></i>
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
                 </a>
             </div>
 
+            <!-- Project 2: Device Manager -->
             <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
                 <div>
                     <h3 class="text-lg font-bold text-white mb-3">Device Management System</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Eszköz- és felhasználókezelő full-stack rendszer Clean Architecture elvek alapján, RESTful API-kkal, JWT hitelesítéssel és Gemini AI ajánlórendszerrel.
+                    <p data-i18n="p2_desc" class="text-sm text-slate-400 mb-4">
+                        Full-stack asset and user management system built with Clean Architecture, REST APIs, JWT security, and AI recommendation logic.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">ASP.NET Web API</span>
@@ -180,15 +190,16 @@
                     </div>
                 </div>
                 <a href="https://github.com/brthpatrick/DeviceManager" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
-                    GitHub Repo megtekintése <i class="fas fa-external-link-alt text-xs"></i>
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
                 </a>
             </div>
 
+            <!-- Project 3: Car Park -->
             <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-3">Car Park App</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Autókereskedés alkalmazás 268 járműves készlettel, szerveroldali szűréssel, Context API állapotkezeléssel és jelszóval védett admin panellel.
+                    <h3 class="text-lg font-bold text-white mb-3">Car Park Dealership App</h3>
+                    <p data-i18n="p3_desc" class="text-sm text-slate-400 mb-4">
+                        Dealership web application managing 268 vehicles, featuring server-side endpoint filtering, 6 Context API domains, and a protected admin panel.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">React 19</span>
@@ -198,15 +209,16 @@
                     </div>
                 </div>
                 <a href="https://github.com/brthpatrick/CarPark2026" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
-                    GitHub Repo megtekintése <i class="fas fa-external-link-alt text-xs"></i>
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
                 </a>
             </div>
 
+            <!-- Project 4: Mobile Shopping -->
             <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
                 <div>
                     <h3 class="text-lg font-bold text-white mb-3">Mobile Shopping App</h3>
-                    <p class="text-sm text-slate-400 mb-4">
-                        Cross-platform mobil vásárlási alkalmazás böngészéssel, kosárkezeléssel, debounced kereséssel és Expo Router navigációval.
+                    <p data-i18n="p4_desc" class="text-sm text-slate-400 mb-4">
+                        Cross-platform mobile e-commerce application with debounced global search, skeleton loaders, and centralized hook-based API handling.
                     </p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">React Native</span>
@@ -215,7 +227,43 @@
                     </div>
                 </div>
                 <a href="https://github.com/brthpatrick/shopping-app" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
-                    GitHub Repo megtekintése <i class="fas fa-external-link-alt text-xs"></i>
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Project 5: Where Should We Travel -->
+            <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-3">Where Should We Travel?</h3>
+                    <p data-i18n="p5_desc" class="text-sm text-slate-400 mb-4">
+                        Interactive web app serving travel destination selection logic via a custom JSON-based API and dynamic client-side DOM rendering.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">JavaScript (ES6+)</span>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">JSON API</span>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">CSS3</span>
+                    </div>
+                </div>
+                <a href="https://github.com/brthpatrick/Where-to-go-vacation-project-1" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Project 6: Escape Room AI -->
+            <div class="glass p-6 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-slate-700 transition">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-3">Escape Room AI Engine</h3>
+                    <p data-i18n="p6_desc" class="text-sm text-slate-400 mb-4">
+                        Dynamic web application generating real-time game challenges and interactive scenarios by bridging Laravel with Python AI pipelines.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">PHP / Laravel</span>
+                        <span class="text-xs bg-slate-800 text-purple-300 px-2.5 py-1 rounded-md">Python AI</span>
+                        <span class="text-xs bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md">MySQL</span>
+                    </div>
+                </div>
+                <a href="https://github.com/brthpatrick" target="_blank" class="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline">
+                    <span data-i18n="view_repo">View Repository</span> <i class="fas fa-external-link-alt text-xs"></i>
                 </a>
             </div>
 
@@ -225,32 +273,32 @@
     <!-- Skills Section -->
     <section id="skills" class="py-16 px-4 max-w-6xl mx-auto">
         <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-            <i class="fas fa-laptop-code text-cyan-400"></i> Technológiai Készségek
+            <i class="fas fa-laptop-code text-cyan-400"></i> <span data-i18n="skills_title">Technical Skills</span>
         </h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div class="glass p-5 rounded-xl border border-slate-800">
-                <h4 class="text-cyan-400 font-semibold mb-2">Nyelvek</h4>
+                <h4 data-i18n="sk_lang" class="text-cyan-400 font-semibold mb-2">Languages</h4>
                 <p class="text-sm text-slate-300">C#, TypeScript, JavaScript, Python, PHP, Java, C++</p>
             </div>
             <div class="glass p-5 rounded-xl border border-slate-800">
-                <h4 class="text-cyan-400 font-semibold mb-2">Backend & Frameworks</h4>
+                <h4 data-i18n="sk_back" class="text-cyan-400 font-semibold mb-2">Backend & Frameworks</h4>
                 <p class="text-sm text-slate-300">.NET / ASP.NET Core, Node.js, Blazor, Laravel, Entity Framework</p>
             </div>
             <div class="glass p-5 rounded-xl border border-slate-800">
-                <h4 class="text-cyan-400 font-semibold mb-2">Frontend & Mobile</h4>
+                <h4 data-i18n="sk_front" class="text-cyan-400 font-semibold mb-2">Frontend & Mobile</h4>
                 <p class="text-sm text-slate-300">React, React Native, Angular, Tailwind CSS, Flutter</p>
             </div>
             <div class="glass p-5 rounded-xl border border-slate-800">
-                <h4 class="text-cyan-400 font-semibold mb-2">Adatbázisok & Cloud</h4>
-                <p class="text-sm text-slate-300">MS SQL Server, MongoDB, MySQL, Azure, Google Gemini API</p>
+                <h4 data-i18n="sk_db" class="text-cyan-400 font-semibold mb-2">Databases & Tools</h4>
+                <p class="text-sm text-slate-300">MS SQL Server, MongoDB, MySQL, Azure, Gemini API, Selenium/FlaUI</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 px-4 max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">Lépjünk kapcsolatba!</h2>
-        <p class="text-slate-400 mb-8">Nyitott vagyok szoftverfejlesztői és AI-fókuszú megkeresésekre.</p>
+        <h2 data-i18n="contact_title" class="text-3xl font-bold text-white mb-4">Let's Connect!</h2>
+        <p data-i18n="contact_sub" class="text-slate-400 mb-8">I am open to software development and AI engineering opportunities.</p>
         <div class="flex flex-col sm:flex-row justify-center items-center gap-6 glass p-8 rounded-2xl border border-slate-800">
             <a href="mailto:barth.patrick9817@gmail.com" class="flex items-center gap-3 text-slate-200 hover:text-cyan-400 transition">
                 <i class="fas fa-envelope text-cyan-400 text-xl"></i> barth.patrick9817@gmail.com
@@ -263,8 +311,95 @@
 
     <!-- Footer -->
     <footer class="py-8 text-center text-xs text-slate-500 border-t border-slate-800/60 mt-12">
-        <p>&copy; 2026 Patrick-László Barth. Minden jog fenntartva.</p>
+        <p>&copy; 2026 Patrick-László Barth. All rights reserved.</p>
     </footer>
 
+    <!-- Multilingual Script -->
+    <script>
+        const translations = {
+            en: {
+                nav_about: "About", nav_exp: "Experience", nav_projects: "Projects", nav_skills: "Skills", nav_contact: "Contact",
+                hero_badge: "MSc Artificial Intelligence Student", hero_greeting: "Hi, I'm",
+                hero_desc: "Computer Science graduate & MSc Student in Artificial Intelligence at UMFST Târgu Mureș. Focused on full-stack development (C# / .NET, React, Angular, Node.js) and practical AI integrations.",
+                btn_projects: "View Projects", btn_contact: "Get in Touch", status_ready: "Ready to build",
+                exp_title: "Work Experience",
+                topmotive_bullets: "<li>Built 3 full-stack web and mobile apps using Blazor, React 19, React Native, TypeScript, C#/.NET, and MongoDB.</li><li>Applied Clean Architecture principles, Context API state management, and JS Interop.</li><li>Implemented automated UI testing using Selenium WebDriver and FlaUI.</li>",
+                accenture_bullets: "<li>Developed C#/.NET application for automated table extraction using Azure Form Recognizer.</li><li>Implemented data normalization, value extraction logic, and element relationship discovery.</li>",
+                webapix_bullets: "<li>Developed an AI-driven escape room application integrating Laravel with Python-based AI models.</li><li>Implemented backend logic, database integrations, and feature development in Laravel.</li>",
+                projects_title: "Featured Projects", badge_thesis: "Bachelor Thesis", view_repo: "View Repository",
+                p1_desc: "Multi-role e-commerce platform with RBAC security, Stripe payments, and Google Gemini 2.5 Flash integration for automated multilingual product descriptions.",
+                p2_desc: "Full-stack asset and user management system built with Clean Architecture, REST APIs, JWT security, and AI recommendation logic.",
+                p3_desc: "Dealership web application managing 268 vehicles, featuring server-side endpoint filtering, 6 Context API domains, and a protected admin panel.",
+                p4_desc: "Cross-platform mobile e-commerce application with debounced global search, skeleton loaders, and centralized hook-based API handling.",
+                p5_desc: "Interactive web app serving travel destination selection logic via a custom JSON-based API and dynamic client-side DOM rendering.",
+                p6_desc: "Dynamic web application generating real-time game challenges and interactive scenarios by bridging Laravel with Python AI pipelines.",
+                skills_title: "Technical Skills", sk_lang: "Languages", sk_back: "Backend & Frameworks", sk_front: "Frontend & Mobile", sk_db: "Databases & Tools",
+                contact_title: "Let's Connect!", contact_sub: "I am open to software development and AI engineering opportunities."
+            },
+            hu: {
+                nav_about: "Rólam", nav_exp: "Tapasztalat", nav_projects: "Projektek", nav_skills: "Készségek", nav_contact: "Kapcsolat",
+                hero_badge: "MSc MI Mesterképzéses Hallgató", hero_greeting: "Szia, én",
+                hero_desc: "Informatikus szoftverfejlesztő és MI-mesterképzéses hallgató (UMFST Târgu Mureș). Szakterületem a full-stack fejlesztés (C# / .NET, React, Angular, Node.js) és a gyakorlati AI-integrációk.",
+                btn_projects: "Projektek megtekintése", btn_contact: "Kapcsolatfelvétel", status_ready: "Fejlesztésre kész",
+                exp_title: "Munkatapasztalat",
+                topmotive_bullets: "<li>3 full-stack web- és mobilalkalmazás fejlesztése Blazor, React 19, React Native, TypeScript, C#/.NET és MongoDB használatával.</li><li>Clean Architecture elvek, Context API állapotkezelés és JS Interop alkalmazása.</li><li>Automated UI tesztelés megvalósítása Selenium WebDriver és FlaUI használatával.</li>",
+                accenture_bullets: "<li>C#/.NET alapú adatkinyerő alkalmazás fejlesztése Azure Form Recognizer integrációval.</li><li>Strukturált adatfeldolgozási, normalizálási és elem-kapcsolati logikák megvalósítása.</li>",
+                webapix_bullets: "<li>AI-vezérelt szabadulószoba webalkalmazás fejlesztése Laravel és Python MI modellek integrálásával.</li><li>Backend logika, adatbázis integrációk és funkciófejlesztés Laravel keretrendszerben.</li>",
+                projects_title: "Kiemelt Projektek", badge_thesis: "Licenszmunkám", view_repo: "GitHub Repo",
+                p1_desc: "Többszereplős e-commerce platform RBAC jogosultságkezeléssel, Stripe fizetéssel és Google Gemini 2.5 Flash integrációval a többnyelvű termékleírásokhoz.",
+                p2_desc: "Eszköz- és felhasználókezelő full-stack rendszer Clean Architecture elvek alapján, RESTful API-kkal, JWT hitelesítéssel és AI ajánlórendszerrel.",
+                p3_desc: "Autókereskedés alkalmazás 268 járműves készlettel, szerveroldali szűréssel, Context API állapotkezeléssel és jelszóval védett admin panellel.",
+                p4_desc: "Cross-platform mobil vásárlási alkalmazás böngészéssel, kosárkezeléssel, debounced kereséssel és Expo Router navigációval.",
+                p5_desc: "Interaktív utazásválasztó webalkalmazás egyedi JSON API alapon, dinamikus DOM megjelenítéssel.",
+                p6_desc: "Dinamikus webes játékfejlesztés valós idejű kihívásokkal, a Laravel és a Python AI modellek összekapcsolásával.",
+                skills_title: "Technológiai Készségek", sk_lang: "Nyelvek", sk_back: "Backend és Frameworkök", sk_front: "Frontend és Mobil", sk_db: "Adatbázisok és Eszközök",
+                contact_title: "Lépjünk kapcsolatba!", contact_sub: "Nyitott vagyok szoftverfejlesztői és AI-fókuszú megkeresésekre."
+            },
+            ro: {
+                nav_about: "Despre", nav_exp: "Experiență", nav_projects: "Proiecte", nav_skills: "Competențe", nav_contact: "Contact",
+                hero_badge: "Student Master IA", hero_greeting: "Salut, sunt",
+                hero_desc: "Absolvent Informatică și student la Masteratul de Inteligență Artificială la UMFST Târgu Mureș. Axat pe dezvoltare full-stack (C# / .NET, React, Angular, Node.js) și integrări de IA.",
+                btn_projects: "Vezi Proiectele", btn_contact: "Contactează-mă", status_ready: "Disponibil pentru proiecte",
+                exp_title: "Experiență Profesională",
+                topmotive_bullets: "<li>Dezvoltarea a 3 aplicații full-stack web și mobile folosind Blazor, React 19, React Native, TypeScript, C#/.NET și MongoDB.</li><li>Aplicarea principiilor Clean Architecture, Context API și JS Interop.</li><li>Testare UI automatizată cu Selenium WebDriver și FlaUI.</li>",
+                accenture_bullets: "<li>Dezvoltarea unei aplicații C#/.NET pentru extragerea tabelară din documente folosind Azure Form Recognizer.</li><li>Implementarea logicii de normalizare a datelor și descoperirea relațiilor între elemente.</li>",
+                webapix_bullets: "<li>Dezvoltarea unei aplicații de escape room bazată pe IA, integrând Laravel cu modele IA în Python.</li><li>Implementarea logicii backend și a integrărilor de baze de date în Laravel.</li>",
+                projects_title: "Proiecte Reprezentative", badge_thesis: "Lucrare de Licență", view_repo: "Vezi Repository",
+                p1_desc: "Platformă e-commerce cu securitate RBAC, plăți Stripe și integrare Google Gemini 2.5 Flash pentru generarea automată a descrierilor multilingve.",
+                p2_desc: "Sistem full-stack de gestionare a dispozitivelor bazat pe Clean Architecture, API-uri RESTful, securitate JWT și recomandări IA.",
+                p3_desc: "Aplicație web pentru parcul auto cu 268 de vehicule, filtrare pe server, stare gestionată prin Context API și panou de administrare securizat.",
+                p4_desc: "Aplicație mobilă e-commerce cross-platform cu căutare debounced, încărcare schelet și gestionare centralizată a API-urilor.",
+                p5_desc: "Aplicație web interactivă pentru alegerea destinațiilor de vacanță bazată pe un API JSON personalizat și randare dinamică în DOM.",
+                p6_desc: "Aplicație web dinamică care generează provocări în timp real prin conectarea framework-ului Laravel cu modele de IA în Python.",
+                skills_title: "Competențe Tehnice", sk_lang: "Limbaje", sk_back: "Backend & Framework-uri", sk_front: "Frontend & Mobile", sk_db: "Baze de Date & Unelte",
+                contact_title: "Hai să luăm legătura!", contact_sub: "Sunt deschis oportunităților de dezvoltare software și inginerie IA."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            ['en', 'hu', 'ro'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = "px-2 py-1 rounded transition bg-cyan-500 text-white";
+                } else {
+                    btn.className = "px-2 py-1 rounded transition text-slate-400 hover:text-white";
+                }
+            });
+        }
+    </script>
 </body>
 </html>
